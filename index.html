@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik"
+      rel="stylesheet"
+    />
+    <title>Cat Inhaler</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="card">
+      <img src="logo.png" alt="Cat Inhaler Logo" id="logo" />
+
+      <p>
+        Like humans, cats can also suffer from asthma and the same method of
+        treatment using an inhaler is applicable. However, unlike health care
+        options for humans the inhalers and the accompanying adapters and masks
+        for your pet may be limited in choice and not offer good value for
+        money. A popular branded product as an example is the AeroKat which
+        costs from £65 with similar products being retailed for as much as £100
+        on other websites. Frankly, this is ridiculous to pay so much for a bit
+        of plastic but the pet companies know there is not much choice so they
+        can charge what they like. These spacer products often also force you to
+        buy their own asthma cartridge from them by making the connector round.
+        However, with some help from your vet, you can buy the exact same
+        medical product your cat needs from your local pharmacy. In the UK the
+        shape of all inhalers are standardised so our spacer is designed to fit
+        this standard as pictured in the small diagram. The current prescription
+        cost in the UK from the NHS is about £9 to pick up the inhaler. However
+        to administer the inhaler for your cat you need the spacer and mask. A
+        small vent is built into the spacer to allow for the cat to exhale. The
+        mask comes in a small size to fit cats. If you need this for a dog you
+        might be better off with a large mask which we do not currently sell.
+        Some people have also found it cheaper to buy asthma inhaler spacers for
+        babies but you will find that the mask is a little too big and covers
+        the eyes of your cat which can be a traumatising for them and make
+        administrating the tretment regularly a difficult task. We are a small
+        company and can only sell this product in small batches so please
+        understand that it may take up to 1 month for the product to arrive but
+        we hope it to be with you sooner than this. Our contact details are not
+        public but we will contact you by email after you have made your
+        purchase.
+      </p>
+
+      <br />
+
+      <img src="1.jpg" alt="Cat Inhaler with Cat" class="banner" />
+
+      <div class="gallery">
+        <img src="2.jpg" alt="Cat Inhaler side view" />
+        <img src="3.jpg" alt="Cat Inhaler with diagram" />
+      </div>
+
+      <div id="smart-button-container">
+        <div style="text-align: center">
+          <div id="paypal-button-container"></div>
+        </div>
+      </div>
+      <script
+        src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=GBP"
+        data-sdk-integration-source="button-factory"
+      ></script>
+      <script>
+        function initPayPalButton() {
+          paypal
+            .Buttons({
+              style: {
+                shape: "pill",
+                color: "gold",
+                layout: "vertical",
+                label: "buynow",
+              },
+
+              createOrder: function (data, actions) {
+                return actions.order.create({
+                  purchase_units: [
+                    { amount: { currency_code: "GBP", value: 30 } },
+                  ],
+                });
+              },
+
+              onApprove: function (data, actions) {
+                return actions.order.capture().then(function (orderData) {
+                  // Full available details
+                  console.log(
+                    "Capture result",
+                    orderData,
+                    JSON.stringify(orderData, null, 2)
+                  );
+
+                  // Show a success message within this page, e.g.
+                  const element = document.getElementById(
+                    "paypal-button-container"
+                  );
+                  element.innerHTML = "";
+                  element.innerHTML = "<h3>Thank you for your payment!</h3>";
+
+                  // Or go to another URL:  actions.redirect('thank_you.html');
+                });
+              },
+
+              onError: function (err) {
+                console.log(err);
+              },
+            })
+            .render("#paypal-button-container");
+        }
+        initPayPalButton();
+      </script>
+
+      <div id="purchase">
+        <b>Price £30</b>
+        <small>Including delivery</small>
+        <a
+          id="embedded-checkout-modal-checkout-button"
+          target="_blank"
+          class="button"
+          data-url="https://square.link/u/3UI0pWYm?src=embd"
+          href="https://square.link/u/3UI0pWYm?src=embed"
+        >
+          Buy Now</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
