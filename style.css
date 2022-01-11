@@ -16,7 +16,7 @@ p {
   margin-bottom: 1rem;
 }
 
-.banner {
+#banner {
   display: block;
   border-radius: 0.5rem;
 }
@@ -26,7 +26,16 @@ p {
   width: 45%;
 }
 
-.button {
+#checkout {
+  display: grid;
+  place-items: center;
+  border: 1px solid #e5f0f0;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+#buy-now {
   margin-top: 1.5rem;
   background: #ff89af;
   color: white;
@@ -35,18 +44,9 @@ p {
   border-radius: 1rem;
 }
 
-.button:hover {
+#buy-now:hover {
   text-decoration: none;
   background: #cf6e8d;
-}
-
-#purchase {
-  display: grid;
-  place-items: center;
-  border: 1px solid #e5f0f0;
-  padding: 2rem 3rem;
-  border-radius: 1rem;
-  text-align: center;
 }
 
 .card {
